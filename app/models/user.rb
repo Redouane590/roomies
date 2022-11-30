@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   # validates :phone_number
   # validates :status
+  has_many :user_colocations
 end
