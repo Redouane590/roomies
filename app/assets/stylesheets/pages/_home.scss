@@ -1,5 +1,36 @@
-// Specific CSS for your home-page
+
 .homepage {
-  background-image: url("https://www.cpacanada.ca/-/media/cpa-digital-hub/featured-images/2020/05/hub_05_05_coliving--lead-hero-1200x900.jpg");
-  background-size: cover;
+  width: 100%;
+  background-color: white;
+}
+
+h1 {
+  color: #F9BC60;
+  font-size: 46px;
+  text-align: center;
+  font-weight: bold;
+}
+
+p {
+  color: #252525;
+  font-size: 20px;
+  text-align: center;
+}
+
+.button-home {
+  padding: 35px 0px;
+  width: 100%;
+  background-color: #F9BC60;
+  border-radius: 22px;
+  text-align: center;
+  text-decoration: none;
+  color: #252525;
+  font-size: 24px;
+  display: inline-block;
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.homepage img {
+  width: 100%;
 }
