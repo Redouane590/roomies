@@ -19,7 +19,7 @@ class UsercolocationsController < ApplicationController
       redirect_to colocation_path(@colocation)
     else
       render :new, status: :unprocessable_entity
-    # end
+    end
   end
 
   def edit
