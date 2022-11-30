@@ -5,4 +5,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :colocations do
+    resources :lists, except: [:home] do
+      resources :items
+    end
+    resources :notes, except: [:home]
+    resources :chatroom, only: [:show] do
+      resources :messages, only: :create
+    end
+    resources :events, except: [:home]
+  end
 end
+# sortir edit et update des routes param de coloc
