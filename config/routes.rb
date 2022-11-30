@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :colocations do
+    # resources :user_colocations, only: [:new, :create]
     resources :lists, except: [:home] do
       resources :items
     end

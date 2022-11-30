@@ -7,6 +7,7 @@ class ColocationsController < ApplicationController
   end
 
   def new
+    # @user_colocations = UserColocation.new
     @colocation = Colocation.new
   end
 
