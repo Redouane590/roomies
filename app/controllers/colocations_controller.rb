@@ -1,0 +1,2 @@
+class ColocationsController < ApplicationController
+end
