@@ -1,0 +1,2 @@
+class UsercolocationsController < ApplicationController
+end
