@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_112155) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_30_112953) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_112155) do
     t.index ["colocation_id"], name: "index_lists_on_colocation_id"
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.bigint "colocation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["colocation_id"], name: "index_notes_on_colocation_id"
+  end
+
   create_table "user_colocations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "colocation_id", null: false
@@ -65,6 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_112155) do
 
   add_foreign_key "items", "lists"
   add_foreign_key "lists", "colocations"
+  add_foreign_key "notes", "colocations"
   add_foreign_key "user_colocations", "colocations"
   add_foreign_key "user_colocations", "users"
 end
