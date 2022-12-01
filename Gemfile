@@ -27,6 +27,10 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'google-api-client', require: 'google/apis/calendar_v3'
+
+gem 'omniauth-google-oauth2'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
