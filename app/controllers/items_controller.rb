@@ -1,16 +1,15 @@
 class ItemsController < ApplicationController
-
   def new
-    @list = List.find(params[:list_id])
     @item = Item.new
+    @list = List.find(params[:list_id])
+    @colocation = Colocation.find(params[:colocation_id])
   end
 
   def create
-    @colocation = Colocation.find(params[:colocation_id])
     @list = List.find(params[:list_id])
     @item = Item.new(item_params)
-    @item.colocation = @colocation
     @item.list = @list
+    @colocation = Colocation.find(params[:colocation_id])
     if @item.save
       redirect_to colocation_list_path(@colocation, @list)
     else
@@ -19,17 +18,29 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @list = List.find(params[:id])
+    @colocation = Colocation.find(params[:colocation_id])
+    @list = List.find(params[:list_id])
     @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to list_path(@list)
   end
 
+  def update
+    @list = List.find(params[:list_id])
+    @item = Item.find(params[:id])
+    @colocation = Colocation.find(params[:colocation_id])
+    @item.update(item_params)
+    if @item.save
+      redirect_to colocation_list_path(@colocation, @list)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
   def destroy
-    @item = item.find(params[:id])
+    @list = List.find(params[:list_id])
+    @colocation = Colocation.find(params[:colocation_id])
+    @item = Item.find(params[:id])
     @item.destroy
 
-    redirect_to items_path
+    redirect_to colocation_list_path(@colocation, @list)
   end
 
     private

@@ -8,6 +8,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @items = Item.where(list_id: params[:id])
+    @colocation = Colocation.find(params[:colocation_id])
 
   end
 
@@ -29,12 +30,23 @@ class ListsController < ApplicationController
   end
 
   def edit
+    @colocation = Colocation.find(params[:colocation_id])
+    @list = List.find(params[:id])
+  end
+
+  def update
+    @colocation = Colocation.find(params[:colocation_id])
     @list = List.find(params[:id])
     @list.update(list_params)
-    redirect_to colocation_list_path(@list)
+    if @list.save
+      redirect_to colocation_list_path(@colocation, @list)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @colocation = Colocation.find(params[:colocation_id])
     @list = List.find(params[:id])
     @list.destroy
 
