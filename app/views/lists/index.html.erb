@@ -1,7 +1,13 @@
-Index Lists
-
+<div class="container">
 <% @lists.each do |list| %>
+<div class="list-index">
+<% list.colocation = @colocation %>
+<%= link_to colocation_list_path(@colocation, list) do%>
 <%= list.title %>
 <% end %>
+<%= link_to "Supprimer", colocation_list_path(@colocation, list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+</div>
+<% end %>
 
-<% console %>
+<%= link_to "Nouvelle liste", new_colocation_list_path %>
+</div>

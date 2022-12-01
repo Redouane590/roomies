@@ -1,0 +1,7 @@
+<%= @list.title %>
+<% @items.each do |item| %>
+<%= item.name %>
+<% end %>
+
+<%# <%= link_to "ajouter un élément",  new_colocation_list_item_path(@colocation, @list) %> %>
+<%= link_to "Retour aux listes", colocation_lists_path %>
