@@ -2,4 +2,10 @@
 <% @notes.each do |note| %>
 <h2><%= note.title %></h2>
 <p><%= note.content %></p>
+<%= link_to "Modifier cet note", edit_colocation_note_path(@colocation, note) %>
+<%= link_to "Detruire cet note", [@colocation, note], data: { 'turbo-method': :delete, 'turbo-confirm': 'Etes vous sur.e?' } %>
 <% end %>
+
+
+
+<%= link_to "ajouter une note", new_colocation_note_path %>
