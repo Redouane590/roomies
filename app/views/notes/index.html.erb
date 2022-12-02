@@ -1,9 +1,9 @@
 <div class="container text-center">
 <h1>NOTES IMPORTANTES</h1>
-
+<div class="parent">
 <% @notes.each do |note| %>
 <div class="card-purple">
-    <h2><%= note.title %><%= link_to edit_colocation_note_path(@colocation, note) do %>
+    <h2><%= note.title %> <%= link_to edit_colocation_note_path(@colocation, note) do %>
       <i class="fa-regular fa-pen-to-square"></i>
     <% end %></h2>
     <p><%= note.content %></p>
@@ -15,7 +15,7 @@
     <% end %>
 </div>
     <% end %>
-    <%= link_to new_colocation_note_path do   %>
-  <i class="fa-solid fa-circle-plus"></i>
+    </div><%= link_to new_colocation_note_path do   %>
+  <i class="fa-solid fa-circle-plus button-add-yellow"></i>
 <% end %>
 </div>

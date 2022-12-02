@@ -1,20 +1,22 @@
-<div class="showlist container">
-<div class="title d-flex justify-content-center mt-5 mb-5">
-<h1> <%= @list.title %> </h1>
-<button data-bs-toggle="modal" class="edit-button" data-bs-target="#editList">
-<i class="fa-regular fa-pen-to-square"></i>
-</button>
-</div>
-<div class="px-5">
-<%= render @items %>
-</div>
 
-<%= link_to new_colocation_list_item_path(@colocation, @list) do%>
-<i class="fa-solid fa-circle-plus"></i>
-<% end %>
-<%# <%= link_to colocation_lists_path do %>
-<%# <i class="fa-solid fa-hand-back-point-left"></i> %>
-<%# <% end %>
+<div class="showlist container">
+  <div class="title d-flex justify-content-center mt-5 mb-5">
+    <h1> <%= @list.title %> </h1>
+    <button data-bs-toggle="modal" class="edit-button" data-bs-target="#editList">
+    <i class="fa-regular fa-pen-to-square"></i>
+    </button>
+  </div>
+  <div class="px-5">
+    <%= render @items %>
+  </div>
+
+  <%= link_to new_colocation_list_item_path(@colocation, @list) do%>
+  <i class="fa-solid fa-circle-plus"></i>
+  <% end %>
+  <%# <%= link_to colocation_lists_path do %>
+  <%# <i class="fa-solid fa-hand-back-point-left"></i> %>
+  <%# <% end %>
+
 </div>
 
 
@@ -23,9 +25,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel"><div class="container">
-<%= simple_form_for [@colocation, @list], method: :patch do |f| %>
-  <%= f.input :title %>
-  <%= f.button :submit, 'Enregistrer' %>
-<% end %>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <div class="container">
+            <%= simple_form_for [@colocation, @list], method: :patch do |f| %>
+            <%= f.input :title %>
+            <%= f.button :submit, 'Enregistrer' %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+
 </div>
