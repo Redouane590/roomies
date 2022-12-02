@@ -2,15 +2,17 @@
   <%= link_to root_path do  %>
     <i class="fas fa-house"></i>
   <% end %>
-  <%= link_to root_path do  %>
+  <%= link_to colocation_lists_path(current_user.user_colocations.first.colocation_id) do  %>
     <i class="fas fa-list"></i>
   <% end %>
   <%= link_to root_path do  %>
     <i class="fas fa-calendar-week"></i>
   <% end %>
-  <%= link_to root_path do  %>
+
+  <%= link_to colocation_notes_path(current_user.user_colocations.first.colocation_id) do  %>
     <i class="far fa-sticky-note"></i>
   <% end %>
+
   <% if user_signed_in? %>
 
   <%# je choisis ci-dessous la colocation du current_user -> a modifier si le current_user a plusieurs colocations %>
@@ -22,6 +24,7 @@
       <% end %>
   <%# end %>
   <% end %>
+
 
 
 
