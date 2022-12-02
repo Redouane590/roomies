@@ -11,8 +11,14 @@
   <%= link_to root_path do  %>
     <i class="far fa-sticky-note"></i>
   <% end %>
-  <%= link_to root_path do  %>
-    <i class="fas fa-comment-dots"></i>
+  <% colocation = Colocation.find(params[:id])  %>
+  <% chatroom = Chatroom.find_by(colocation: colocation)  %>
+  <% if current_user && chatroom%>
+    <%= link_to colocation_chatroom_path(colocation.id, chatroom.id), class: "navbar-brand" do  %>
+      <i class="fas fa-comment-dots"></i>
+    <% end %>
   <% end %>
+
+
 
 </nav>

@@ -11,10 +11,13 @@ Rails.application.routes.draw do
       resources :items
     end
     resources :notes, except: [:home]
-    resources :chatroom, only: [:show] do
+    resources :chatrooms, only: [:show] do
       resources :messages, only: :create
     end
     resources :events, except: [:home]
+  end
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
   end
 end
 # sortir edit et update des routes param de coloc
