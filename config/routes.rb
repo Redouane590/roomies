@@ -16,5 +16,7 @@ Rails.application.routes.draw do
     end
     resources :events, except: [:home]
   end
+
+  get "calendar", to: "pages#calendar", as: :calendar
 end
 # sortir edit et update des routes param de coloc
