@@ -6,7 +6,7 @@
   <%= link_to colocation_lists_path(current_user.user_colocations.first.colocation_id) do  %>
     <i class="fas fa-list"></i>
   <% end %>
-  <%= link_to root_path do  %>
+  <%= link_to calendar_path do  %>
     <i class="fas fa-calendar-week"></i>
   <% end %>
 
@@ -25,9 +25,5 @@
       <% end %>
   <%# end %>
   <% end %>
-
-
-
-
 </nav>
 <% end %>
