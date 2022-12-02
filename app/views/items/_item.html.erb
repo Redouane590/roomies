@@ -1,0 +1,42 @@
+
+  <div class="list-item d-inline-flex justify-content-between">
+
+
+
+    <%# <div class="checkbox">
+      <tr data-controller="item"
+          data-item-update-url="<%= colocation_list_item_path(@colocation, @list, item) %>
+          <%# <td>
+            <input type="checkbox"
+                        data-action="item#toggle"
+                        data-target="item.completed"
+                        <%# <% if item.completed? %>  <%# end %>
+    <%# </div> %>
+
+
+
+
+
+<div data-controller="items">
+
+<%= simple_form_for([@colocation, @list, item], data: {items_target: "form"}) do |f| %>
+  <%= f.check_box :completed, data: {items_target: "check", action: "change->items#chec"} %>
+  <% end %>
+
+
+</div>
+
+
+
+      <div class="item-name">
+        <%= item.name %>
+      </div>
+      <div class="item-pictos">
+        <%= link_to edit_colocation_list_item_path(@colocation, @list, item) do %>
+          <i class="fa-regular fa-pen-to-square"></i>
+        <% end %>
+        <%= link_to colocation_list_item_path(@colocation, @list, item), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e ?"} do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %> <br>
+      </div>
+  </div>

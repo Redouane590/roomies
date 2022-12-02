@@ -1,19 +1,20 @@
-<div class="container">
-<h1> <%= @list.title %><button data-bs-toggle="modal" class="edit-button" data-bs-target="#editList">
+<div class="showlist container">
+<div class="title d-flex justify-content-center mt-5 mb-5">
+<h1> <%= @list.title %> </h1>
+<button data-bs-toggle="modal" class="edit-button" data-bs-target="#editList">
 <i class="fa-regular fa-pen-to-square"></i>
-</button> </h1>
-<% @items.each do |item| %>
-<%= item.name %>
-<%= link_to edit_colocation_list_item_path(@colocation, @list, item) do %>
-    <i class="fa-regular fa-pen-to-square"></i>
-  <% end %>
-<%= link_to colocation_list_item_path(@colocation, @list, item), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e ?"} do %>
-    <i class="fa-solid fa-trash"></i>
-  <% end %> <br>
-<% end %>
+</button>
+</div>
+<div class="px-5">
+<%= render @items %>
+</div>
 
-<%= link_to "ajouter un élément",  new_colocation_list_item_path(@colocation, @list) %> <br>
-<%= link_to "Retour aux listes", colocation_lists_path %>
+<%= link_to new_colocation_list_item_path(@colocation, @list) do%>
+<i class="fa-solid fa-circle-plus"></i>
+<% end %>
+<%# <%= link_to colocation_lists_path do %>
+<%# <i class="fa-solid fa-hand-back-point-left"></i> %>
+<%# <% end %>
 </div>
 
 

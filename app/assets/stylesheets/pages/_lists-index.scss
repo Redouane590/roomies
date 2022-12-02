@@ -1,0 +1,25 @@
+
+.index-lists {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin-top: 40px;
+}
+
+.list-index {
+  background-color: #FFFDF6;
+  color: #414042;
+  text-align: center;
+  padding: 20px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.list-index a {
+  text-decoration: none;
+  color: #414042;
+}
+
+.mini-todo-items {
+  margin-top: 20px;
+}
