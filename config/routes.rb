@@ -16,8 +16,5 @@ Rails.application.routes.draw do
     end
     resources :events, except: [:home]
   end
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
-  end
 end
 # sortir edit et update des routes param de coloc

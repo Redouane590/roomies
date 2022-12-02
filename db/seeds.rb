@@ -5,11 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Message.destroy_all
+Chatroom.destroy_all
 UserColocation.destroy_all
 Colocation.destroy_all
 User.destroy_all
 puts "create friends colo"
 friends = Colocation.create!(name: "Friends")
+Chatroom.create!(colocation_id: friends.id)
 puts "users creation.."
 joey = User.create!(email: "joey@mail.fr", nickname: "Joey", password: "azerty")
 rachel = User.create!(email: "rachel@mail.fr", nickname: "Rachel", password: "azerty")
@@ -22,3 +25,4 @@ UserColocation.create!(colocation_id: friends.id, user_id: rachel.id)
 UserColocation.create!(colocation_id: friends.id, user_id: ross.id)
 UserColocation.create!(colocation_id: friends.id, user_id: chandler.id)
 UserColocation.create!(colocation_id: friends.id, user_id: monica.id)
+puts "all done"
