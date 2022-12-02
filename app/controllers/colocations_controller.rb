@@ -14,6 +14,7 @@ class ColocationsController < ApplicationController
   def create
     @colocation = Colocation.new(colocation_params)
     if @colocation.save
+      @chatroom = Chatroom.create(colocation_id: @colocation.id)
       redirect_to colocation_path(@colocation)
     else
       render :new, status: :unprocessable_entity
