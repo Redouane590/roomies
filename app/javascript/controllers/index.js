@@ -4,8 +4,13 @@
 
 import { application } from "./application"
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
 import IframeStyleController from "./iframe_style_controller"
 application.register("iframe-style", IframeStyleController)
+import ItemsController from "./items_controller"
+application.register("items", ItemsController)

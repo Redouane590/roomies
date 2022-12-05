@@ -82,6 +82,10 @@ GEM
     bindex (0.8.1)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
+    bootstrap (5.2.3)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.11.6, < 3)
+      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     capybara (3.38.0)
       addressable
@@ -185,7 +189,11 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
+<<<<<<< HEAD
     nokogiri (1.13.9-x64-mingw-ucrt)
+=======
+    nokogiri (1.13.9-x86_64-darwin)
+>>>>>>> 17f87683f16cb8b34859576ef13fea56a3ccff01
       racc (~> 1.4)
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
@@ -211,7 +219,11 @@ GEM
     orm_adapter (0.5.0)
     os (1.1.4)
     pg (1.4.5)
+<<<<<<< HEAD
     pg (1.4.5-x64-mingw-ucrt)
+=======
+    popper_js (2.11.6)
+>>>>>>> 17f87683f16cb8b34859576ef13fea56a3ccff01
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -248,6 +260,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.8.0)
     regexp_parser (2.6.1)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -327,12 +340,17 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
+<<<<<<< HEAD
   x64-mingw-ucrt
+=======
+  x86_64-darwin-20
+>>>>>>> 17f87683f16cb8b34859576ef13fea56a3ccff01
   x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails
   bootsnap
+  bootstrap
   capybara
   debug
   devise
@@ -346,6 +364,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
+  redis (~> 4.0)
   sassc-rails
   selenium-webdriver
   simple_form!

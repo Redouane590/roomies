@@ -1,36 +1,29 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+<% if current_user %>
+<nav class="navbar navbar-expand-lg navbar-light navbarbotom">
+  <%= link_to root_path do  %>
+    <i class="fas fa-house"></i>
+  <% end %>
+  <%= link_to colocation_lists_path(current_user.user_colocations.first.colocation_id) do  %>
+    <i class="fas fa-list"></i>
+  <% end %>
+  <%= link_to calendar_path do  %>
+    <i class="fas fa-calendar-week"></i>
+  <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <%= link_to colocation_notes_path(current_user.user_colocations.first.colocation_id) do  %>
+    <i class="far fa-sticky-note"></i>
+  <% end %>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
+  <% if user_signed_in? %>
+
+  <%# je choisis ci-dessous la colocation du current_user -> a modifier si le current_user a plusieurs colocations %>
+    <% colocation = Colocation.find(current_user.user_colocations.first.colocation.id)  %>
+    <% chatroom = Chatroom.find_by(colocation: colocation)  %>
+    <%# if current_user && chatroom %>
+      <%= link_to colocation_chatroom_path(colocation.id, chatroom.id, anchor:"message-#{chatroom.messages.last.id}"), class: "navbar-brand" do  %>
+        <i class="fas fa-comment-dots"></i>
+      <% end %>
+  <%# end %>
+  <% end %>
+</nav>
+<% end %>

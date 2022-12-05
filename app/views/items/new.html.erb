@@ -1,0 +1,8 @@
+<%= simple_form_for [@colocation, @list, @item] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :urgent? , :as => :radio_buttons, :collection => [['urgent', true],
+  ['Non urgent', false]], label:"Urgent ?" %>
+  <%= f.submit %>
+<% end %>
+</div>

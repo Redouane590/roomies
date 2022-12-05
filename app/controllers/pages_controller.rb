@@ -79,5 +79,7 @@ class PagesController < ApplicationController
     service.insert_event("d3def9ad4e63c39cf1ee56730b1a603d67bdd96d927abd06f28efc026d2015fa@group.calendar.google.com", event)
 
     redirect_to events_url("d3def9ad4e63c39cf1ee56730b1a603d67bdd96d927abd06f28efc026d2015fa@group.calendar.google.com")
+
+  def calendar
   end
 end
