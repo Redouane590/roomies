@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import IframeStyleController from "./iframe_style_controller"
+application.register("iframe-style", IframeStyleController)

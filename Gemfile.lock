@@ -341,6 +341,7 @@ DEPENDENCIES
   google-api-client
   jbuilder
   jsbundling-rails
+  omniauth
   omniauth-google-oauth2
   pg (~> 1.1)
   puma (~> 5.0)

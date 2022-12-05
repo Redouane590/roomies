@@ -31,6 +31,9 @@ gem 'google-api-client', require: 'google/apis/calendar_v3'
 
 gem 'omniauth-google-oauth2'
 
+gem 'omniauth'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
