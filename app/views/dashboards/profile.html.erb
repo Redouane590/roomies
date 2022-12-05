@@ -1,0 +1,12 @@
+Pseudo : <%= @user.nickname %> <br>
+Adresse email : <%= @user.email %> <br>
+Numéro de téléphone : <%= @user.phone_number %> <br>
+
+<% @colocations.each do |colocation| %>
+Ma colocation : <%= colocation.name %>
+Mes colocataires : <% colocation.users.each do |user| %>
+<% unless user == current_user %>
+<%= user.nickname %>
+<% end %>
+<% end %>
+<% end %>

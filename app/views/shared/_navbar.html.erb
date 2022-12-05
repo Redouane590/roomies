@@ -14,16 +14,16 @@
     <i class="far fa-sticky-note"></i>
   <% end %>
 
-  <% if user_signed_in? %>
+  <%# <% if user_signed_in? %> %>
 
   <%# je choisis ci-dessous la colocation du current_user -> a modifier si le current_user a plusieurs colocations %>
-    <% colocation = Colocation.find(current_user.user_colocations.first.colocation.id)  %>
-    <% chatroom = Chatroom.find_by(colocation: colocation)  %>
+    <%# <% colocation = Colocation.find(current_user.user_colocations.first.colocation.id)  %> %>
+    <%# <% chatroom = Chatroom.find_by(colocation: colocation)  %> %>
     <%# if current_user && chatroom %>
-      <%= link_to colocation_chatroom_path(colocation.id, chatroom.id, anchor:"message-#{chatroom.messages.last.id}"), class: "navbar-brand" do  %>
-        <i class="fas fa-comment-dots"></i>
-      <% end %>
+      <%# <%= link_to colocation_chatroom_path(colocation.id, chatroom.id, anchor:"message-#{chatroom.messages.last.id}"), class: "navbar-brand" do  %> %>
+        <%# <i class="fas fa-comment-dots"></i> %>
+      <%# <% end %> %>
   <%# end %>
-  <% end %>
+  <%# <% end %> %>
 </nav>
 <% end %>

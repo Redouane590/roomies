@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   end
 
   get "calendar", to: "pages#calendar", as: :calendar
+  get "profile", to: "dashboards#profile", as: :profile
+
 end
 # sortir edit et update des routes param de coloc
