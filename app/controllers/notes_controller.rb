@@ -25,15 +25,10 @@ class NotesController < ApplicationController
     # end
 
 
-
+    @note.save
     respond_to do |format|
-      if @note.save
-        format.html { redirect_to colocation_notes_path }
-        format.json # Follow the classic Rails flow and look for a create.json view
-      else
-        format.html { render "notes/new", status: :unprocessable_entity }
-        format.json # Follow the classic Rails flow and look for a create.json view
-      end
+      format.html { redirect_to colocation_notes_path }
+      format.text { render partial: "notes/note", locals: {note: @note}, formats: [:html] }
     end
   end
 
