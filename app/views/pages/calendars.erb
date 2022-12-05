@@ -1,6 +1,8 @@
+<!--
+
 <div class="container">
   <ul>
-<!--    <% @calendar_list.items.each do |calendar| %>
+    <% @calendar_list.items.each do |calendar| %>
       <li><%= calendar.summary %> (<%= calendar.id %>)</li>
      <%@service.list_events(calendar.id).items.each do |event| %>
         <li><%= event.summary %> (<%= event.id %>)</li>
@@ -13,13 +15,13 @@
       <li><%= event.summary %> (<%= event.id %>)</li>
     <% end %>
   </ul>
--->
+
 
 
 </div>
-<iframe data-controller="iframe-style" src="https://calendar.google.com/calendar/embed?height=700&wkst=2&bgcolor=%23ce7777&ctz=Europe%2FParis&title=Roomies&showCalendars=0&showTz=0&showPrint=0&showTitle=0&mode=AGENDA&showNav=1&showDate=0&src=ZDNkZWY5YWQ0ZTYzYzM5Y2YxZWU1NjczMGIxYTYwM2Q2N2JkZDk2ZDkyN2FiZDA2ZjI4ZWZjMDI2ZDIwMTVmYUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23E4C441" style="border-width:0" width="370" height="700" frameborder="0" scrolling="no"></iframe>
+-->
 <div class="container">
-<%= form_tag new_event_url(@event_list) do %>
+<iframe src="https://calendar.google.com/calendar/embed?height=700&wkst=2&bgcolor=%23ce7777&ctz=Europe%2FParis&showTitle=0&showNav=0&showDate=0&showPrint=0&showCalendars=0&showTz=0&mode=MONTH&src=ZDNkZWY5YWQ0ZTYzYzM5Y2YxZWU1NjczMGIxYTYwM2Q2N2JkZDk2ZDkyN2FiZDA2ZjI4ZWZjMDI2ZDIwMTVmYUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23E4C441" style="border:solid 1px #777" width="400" height="700" frameborder="0" scrolling="no"></iframe><%= form_tag new_event_url(@event_list) do %>
   <%= date_field_tag :start %>
   <%= date_field_tag :end %>
   <%= text_field_tag :name %>
