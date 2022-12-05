@@ -1,12 +1,69 @@
-Pseudo : <%= @user.nickname %> <br>
-Adresse email : <%= @user.email %> <br>
-Numéro de téléphone : <%= @user.phone_number %> <br>
+<div class="profile-page">
+  <div class="container">
 
-<% @colocations.each do |colocation| %>
-Ma colocation : <%= colocation.name %>
-Mes colocataires : <% colocation.users.each do |user| %>
-<% unless user == current_user %>
-<%= user.nickname %>
-<% end %>
-<% end %>
-<% end %>
+    <div class="user-infos">
+        <button data-bs-toggle="modal" class="edit-button" data-bs-target="#editList">
+          <i class="fa-regular fa-pen-to-square"></i>
+        </button>
+      <% if @user.photo.key  %>
+        <%= cl_image_tag @user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "profile-avatar" %>
+      <% end %> <br>
+      <br>
+      <h1><%= @user.nickname %></h1>
+
+        <i class="fa-solid fa-envelope"></i> Adresse email : <%= @user.email %> <br>
+        <i class="fa-solid fa-phone"></i> Numéro de téléphone : <%= @user.phone_number %></strong> <br>
+
+      <% @colocations.each do |colocation| %>
+        <i class="fa-solid fa-house-user"></i> Ma colocation : <strong> <%= colocation.name %> </strong><br>
+        <i class="fa-solid fa-user-group"></i> Mes colocataires : <br>
+          <div class="colocataires">
+            <% colocation.users.each do |user| %>
+                <% unless user == current_user %>
+                <%= link_to  %>
+                  <div class="colocataire">
+                      <%= user.nickname %> <br>
+                    <% if user.photo.key %>
+                      <%= user.photo.key %>
+                    <% else %>
+                      <%= image_tag("avatar.png.png", height: '32', width: '32') %>
+                    <% end %>
+                  </div>
+                <% end %>
+            <% end %>
+          </div>
+      <% end %>
+      <%= link_to "Modifier mon mot de passe", edit_user_registration_path  %>
+    </div>
+
+
+  <!-- Modal -->
+    <div class="modal fade" id="editList" tabindex="-1" aria-labelledby="editList" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              <div class="container">
+                <%= simple_form_for  @user,  url: update_profile_infos_path do |f| %>
+                  <div class="form-inputs">
+                  <%= f.input :email, required: true, autofocus: true %>
+                  <%= f.input :photo, as: :file %>
+                  <%= f.input :nickname,
+                      label: 'Pseudo',
+                      required: true,
+                      input_html: { autocomplete: "Pseudo" } %>
+                  <%= f.input :phone_number,
+                      label: 'Numéro de téléphone',
+                      input_html: { autocomplete: "Numéro de téléphone" } %>
+                  </div>
+                    <div class="form-actions">
+                      <%= f.button :submit, "Mettre à jour", class:'btn btn-primary'%>
+                    </div>
+                <% end %>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

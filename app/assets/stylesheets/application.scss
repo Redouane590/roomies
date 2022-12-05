@@ -13,8 +13,13 @@
 @import "pages/home";
 @import "pages/lists-index";
 @import "pages/lists-show";
+@import "pages/profile";
 @import "components/header";
 
 @import "components/navbar";
 
 @import "components/cards";
+
+body {
+  background-color: #FFFDF6;
+}
