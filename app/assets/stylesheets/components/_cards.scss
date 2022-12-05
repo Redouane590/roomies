@@ -4,19 +4,44 @@
   margin-top: 20px;
   padding: auto;
 }
+
+.even-1 {
+  background-color: #ac4c4c;
+}
+
+.even-0 {
+  background-color: #4baf7b;
+}
 // .grill-notes {
 //   overflow-y: auto;
 // }
 .parent {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-template-rows: repeat(7, 1fr);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
   }
+
 .parent :nth-child(1) { grid-area: 1 / 1 / 2 / 7; }
 .parent :nth-child(2) { grid-area: 2 / 1 / 3 / 4; }
 .parent :nth-child(3) { grid-area: 2 / 4 / 3 / 7; }
 .parent :nth-child(4) { grid-area: 3 / 1 / 4 / 7; }
 .parent :nth-child(5) { grid-area: 4 / 1 / 5 / 4; }
 .parent :nth-child(6) { grid-area: 4 / 4 / 5 / 7; }
+.parent :nth-child(7) { grid-area: 5 / 1 / 6 / 7; }
+.parent :nth-child(8) { grid-area: 6 / 1 / 7 / 4; }
+.parent :nth-child(9) { grid-area: 6 / 4 / 7 / 7; }
+.parent :nth-child(10) { grid-area: 7 / 1 / 8 / 7; }
+
+
+
+// .parent :nth-child(1) {
+//   background-color: #622222;
+
+// }
+
+// .parent :nth-child(2) {
+//   background-color: #803737;
+
+// }

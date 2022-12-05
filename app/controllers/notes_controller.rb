@@ -6,6 +6,7 @@ class NotesController < ApplicationController
   def index
     @colocation = Colocation.find(params[:colocation_id])
     @notes = Note.where(colocation_id: params[:colocation_id])
+    @note = Note.new
   end
 
   def new
@@ -17,10 +18,22 @@ class NotesController < ApplicationController
     @colocation = Colocation.find(params[:colocation_id])
     @note = Note.new(note_params)
     @note.colocation = @colocation
-    if @note.save
-      redirect_to colocation_notes_path
-    else
-      render :new, status: :unprocessable_entity
+    # if @note.save
+    #   redirect_to colocation_notes_path
+    # else
+    #   render :new, status: :unprocessable_entity
+    # end
+
+
+
+    respond_to do |format|
+      if @note.save
+        format.html { redirect_to colocation_notes_path }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      else
+        format.html { render "notes/new", status: :unprocessable_entity }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      end
     end
   end
 
