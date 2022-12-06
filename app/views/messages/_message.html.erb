@@ -1,4 +1,4 @@
-<div id="message-<%= message.id %>">
+<div id="message-<%= message.id %>" class="my-3 <%= message.user.id == current_user.id ? 'right-side-message':'left-side-message' %>">
   <small>
     <strong><%= message.user.nickname %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
