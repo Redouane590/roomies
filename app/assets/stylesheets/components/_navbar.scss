@@ -11,5 +11,10 @@
   i {
     font-size: 40px;
     color: white;
+    opacity: 0.7;
+  }
+
+  .active-page {
+    opacity: 1;
   }
 }

@@ -11,24 +11,32 @@
     <% else %>
           <% @lists.each do |list| %>
             <div class="list-index">
+            <div class="bin-picto">
+            <%= link_to colocation_list_path(@colocation, list), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e ?"} do %>
+                  <i class="fa-solid fa-trash"></i>
+                  <% end %>
+            </div>
               <% list.colocation = @colocation %>
               <%= link_to colocation_list_path(@colocation, list) do%>
                 <%= list.title.upcase %>
-                  <%= link_to colocation_list_path(@colocation, list), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e ?"} do %>
-                  <i class="fa-solid fa-trash"></i>
-                  <% end %> <br>
+                  <br>
                   <div class="mini-todo-items">
                     <% list.items.first(3).each do |item| %>
                     <%= item.name %> <br>
                     <% end %>
+                    <br>
+                    <%= link_to "Voir plus..", colocation_list_path(@colocation, list) %>
                   </div>
               <% end %>
             </div>
           <% end %>
       </div>
-
-        <%= link_to new_colocation_list_path do %>
-        <i class="fa-solid fa-circle-plus button-add-yellow"></i>
-        <% end %>
+    <div class="outside-btn">
+        <div class="add-button">
+          <%= link_to new_colocation_list_path do %>
+          <i class="fa-solid fa-circle-plus button-add-yellow"></i>
+          <% end %>
+        </div>
+      </div>
     <% end %>
 </div>
