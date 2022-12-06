@@ -6,9 +6,13 @@
     <i class="fa-regular fa-pen-to-square"></i>
     </button>
   </div>
+  <% if @items.count == 0 %>
+    <p>Ajoutez votre premier élément</p>
+  <% else %>
   <div class="px-5">
     <%= render @items %>
   </div>
+  <% end %>
 
   <%= link_to new_colocation_list_item_path(@colocation, @list) do%>
   <i class="fa-solid fa-circle-plus button-add-yellow"></i>
