@@ -7,12 +7,18 @@
 }
 
 .list-index {
-  background-color: #FFFDF6;
+  background-color: white;
   color: #414042;
   text-align: center;
   padding: 20px;
   border-radius: 4px;
   position: relative;
+}
+
+.list-index > .bin-picto {
+  position: absolute;
+  top: -5px;
+  right: -5px;
 }
 
 .list-index a {
@@ -22,10 +28,32 @@
 
 .mini-todo-items {
   margin-top: 20px;
+  text-align: left;
 }
 
 .edit-button {
   border: 0px !important;
   font-size: 22px !important;
   margin-left: 15px;
+}
+
+.big-yellow-btn {
+  font-size: 100px;
+  color: #F9BC60;
+  margin-left: 100px;
+}
+
+.empty-list {
+  margin: 0 auto;
+  width: 100px;
+  margin-top: 60px;
+}
+
+.new-list {
+  margin-top: 30px;
+}
+
+.add-button {
+  margin: 20px auto;
+  width: fit-content;
 }

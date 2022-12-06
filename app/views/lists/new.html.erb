@@ -1,7 +1,15 @@
-<h1>Create a new list</h1>
-<div class="container">
-<%= simple_form_for [@colocation, @list] do |f| %>
-  <%= f.input :title %>
-  <%= f.submit %>
-<% end %>
+<div class="new-list">
+  <div class="container">
+    <h1>Nouvelle liste</h1>
+      <%= simple_form_for [@colocation, @list] do |f| %>
+        <%= f.input :title, label: "Titre" %>
+        <%= f.button :submit, "Créer ma liste", class: "btn btn-light " %>
+      <% end %>
+        <br>
+        <br>
+        <br>
+      <%= link_to colocation_lists_path do %>
+        <i class="fa-solid fa-arrow-left button-add-yellow ms-5"></i>
+      <% end %>
+  </div>
 </div>

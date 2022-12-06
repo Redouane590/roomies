@@ -1,8 +1,12 @@
-<h1>Modifier mon élément</h1>
 <div class="container">
-<%= simple_form_for [@colocation, @list, @item], method: :patch do |f| %>
-  <%= f.input :name %>
-    <%= f.input :description %>
-  <%= f.submit %>
-<% end %>
+  <div class="edit-item">
+    <h1>Modifier mon élément</h1>
+    <div class="container">
+    <%= simple_form_for [@colocation, @list, @item], method: :patch do |f| %>
+      <%= f.input :name, label: "Nom" %>
+        <%= f.input :description %>
+      <%= f.submit %>
+    <% end %>
+    </div>
+  </div>
 </div>
