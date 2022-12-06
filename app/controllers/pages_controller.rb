@@ -6,4 +6,8 @@ class PagesController < ApplicationController
 
   def calendar
   end
+
+  def contacts
+    @colocation = Colocation.find(params[:colocation_id])
+  end
 end

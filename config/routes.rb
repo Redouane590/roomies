@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :messages, only: :create
     end
     resources :events, except: [:home]
+    get "contacts", to: "pages#contacts", as: :contacts
   end
 
   get "calendar", to: "pages#calendar", as: :calendar
