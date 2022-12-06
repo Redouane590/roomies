@@ -1,8 +1,10 @@
 .navbarbotom {
-  position: sticky;
+
   height: 90px;
-  left: 0px;
-  bottom: 0px;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background-color: #CE7777;
   justify-content: space-around;
 

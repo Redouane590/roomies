@@ -3,6 +3,7 @@ class ListsController < ApplicationController
   def index
    @lists = List.where(colocation_id: params[:colocation_id])
    @colocation = Colocation.find(params[:colocation_id])
+   @items = Item.where(list_id: params[:id])
   end
 
   def show
