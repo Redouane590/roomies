@@ -2,15 +2,19 @@
   background-color: #F3D8D8;
   border-radius: 8px;
   margin-top: 20px;
-  padding: auto;
+  // padding: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
 }
 
 .even-1 {
-  background-color: #ac4c4c;
+  background-color: #F9BC60;
 }
 
 .even-0 {
-  background-color: #4baf7b;
+  background-color: #db8e8e;
 }
 // .grill-notes {
 //   overflow-y: auto;
@@ -33,15 +37,3 @@
 .parent :nth-child(8) { grid-area: 6 / 1 / 7 / 4; }
 .parent :nth-child(9) { grid-area: 6 / 4 / 7 / 7; }
 .parent :nth-child(10) { grid-area: 7 / 1 / 8 / 7; }
-
-
-
-// .parent :nth-child(1) {
-//   background-color: #622222;
-
-// }
-
-// .parent :nth-child(2) {
-//   background-color: #803737;
-
-// }
