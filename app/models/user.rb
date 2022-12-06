@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: true
+  has_one_attached :photo
+
   # validates :phone_number
   # validates :status
   has_many :user_colocations
