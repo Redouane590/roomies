@@ -7,9 +7,7 @@ Rails.application.routes.draw do
   }
 
   # calendar routes
-  get '/calendars', to: 'calendar#calendars', as: 'calendars'
-  get '/events/:calendar_id', to: 'calendar#events', as: 'events', calendar_id: /[^\/]+/
-  post '/events/:calendar_id', to: 'calendar#new_event', as: 'new_event', calendar_id: /[^\/]+/
+
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
