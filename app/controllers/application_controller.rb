@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # skip_before_action :verify_authenticity_token, if: -> { request.env['omniauth.auth'] }
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 

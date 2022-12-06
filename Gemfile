@@ -33,6 +33,10 @@ gem 'omniauth-google-oauth2'
 
 gem 'omniauth'
 
+gem 'omniauth-rails_csrf_protection'
+
+gem 'warden'
+
 gem "bootstrap"
 
 # Use Redis adapter to run Action Cable in production

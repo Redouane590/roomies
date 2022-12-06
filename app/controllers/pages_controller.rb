@@ -28,7 +28,7 @@ class PagesController < ApplicationController
     response = client.fetch_access_token!
 
     session[:authorization] = response
-
+    raise
     redirect_to calendars_url
   end
 
