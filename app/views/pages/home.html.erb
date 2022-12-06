@@ -9,3 +9,14 @@
     <img src="https://media.istockphoto.com/id/1291922442/vector/neighbors-keeping-pets-in-their-flats.jpg?s=612x612&w=0&k=20&c=UnezI5ZtzKlCFu99vrdUp1nNDaij-oqZSjMZHuEh1ic=" alt="">
   </div>
 </div>
+
+
+
+
+<% if current_user %>
+  <h2><%= current_user.email %></h2>
+  <%= link_to "Edit Account", edit_user_registration_path %>
+  <%= button_to "Logout", destroy_user_session_path, data: {turbo: "false"}, method: :delete %>
+<% else %>
+  <%= link_to "Login", new_user_session_path %>
+<% end %>
