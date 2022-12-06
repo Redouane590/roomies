@@ -5,19 +5,26 @@
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
-    <% end %>
+      <%= render "messages/message", message: message %>
+<% end %>
   </div>
 
+  <%# <div class="message-box">
+    <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
+    <button type="submit" class="message-submit">Send</button>
+  </div> %>
 
-<%= simple_form_for [@colocation, @chatroom, @message],
-  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f| %>
+
+<div class="container">
+<div class="chat_field"> <%= simple_form_for [@colocation, @chatroom, @message],
+  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex my-5" } do |f| %>
 <%= f.input :content,
     label: false,
-    placeholder: "Message",
-    wrapper_html: {class: "flex-grow-1"}
+    placeholder: "Type message...",
+    wrapper_html: {class: " flex-grow-1"}
   %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <%= f.submit "Send", class: "btn btn-outline-secondary mb-3" %>
 <% end %>
-
+</div>
+</div>
 </div>
