@@ -1,0 +1,21 @@
+ <div class="contact-page">
+  <div class="container">
+    <h1>Nos contacts</h1>
+
+    <div class="contacts">
+      <% @colocation.users.each do |user| %>
+        <div class="contact">
+          <% if user.photo.key %>
+            <%= cl_image_tag user.photo.key, width: 32, height: 32, crop: :thumb, gravity: :face, class: "profile-avatar" %>
+          <% else %>
+            <%= image_tag("avatar.png.png", height: '32', width: '32') %>
+          <% end %>
+            <%= user.nickname %>
+          <% unless user == current_user %>
+            <a href="tel:<%= user.phone_number %>"><i class="fa-solid fa-phone"></i></a>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
