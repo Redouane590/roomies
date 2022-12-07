@@ -2,20 +2,22 @@
 <div class="showlist container">
   <div class="title d-flex justify-content-center mt-5 mb-5">
     <h1> <%= @list.title %> </h1>
-    <button data-bs-toggle="modal" class="edit-button" data-bs-target="#editList">
-    <i class="fa-regular fa-pen-to-square"></i>
-    </button>
+    <i data-bs-toggle="modal" class="fa-regular fa-pen-to-square edit-button" data-bs-target="#editList"></i>
   </div>
+  <% if @items.count == 0 %>
+    <p>Ajoutez votre premier élément</p>
+  <% else %>
   <div class="px-5">
     <%= render @items %>
   </div>
+  <% end %>
 
   <%= link_to new_colocation_list_item_path(@colocation, @list) do%>
   <i class="fa-solid fa-circle-plus button-add-yellow"></i>
+  <% end %><br>
+  <%= link_to colocation_lists_path do %>
+  <i class="fa-solid fa-arrow-left button-add-yellow"></i>
   <% end %>
-  <%# <%= link_to colocation_lists_path do %>
-  <%# <i class="fa-solid fa-hand-back-point-left"></i> %>
-  <%# <% end %>
 
 </div>
 
@@ -35,5 +37,4 @@
       </div>
     </div>
   </div>
-
 </div>
