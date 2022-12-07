@@ -1,6 +1,9 @@
 <div class="new-list">
   <div class="container">
     <h1>Nouvelle liste</h1>
+    <%= link_to colocation_lists_path do %>
+        <i class="fa-solid fa-arrow-left button-add-yellow ms-5"></i>
+      <% end %>
       <%= simple_form_for [@colocation, @list] do |f| %>
         <%= f.input :title, label: "Titre" %>
         <%= f.button :submit, "Créer ma liste", class: "btn btn-light " %>
@@ -8,8 +11,5 @@
         <br>
         <br>
         <br>
-      <%= link_to colocation_lists_path do %>
-        <i class="fa-solid fa-arrow-left button-add-yellow ms-5"></i>
-      <% end %>
   </div>
 </div>
