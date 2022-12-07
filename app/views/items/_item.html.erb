@@ -1,9 +1,11 @@
       <div class="list-item">
         <div class="d-flex justify-content-between">
           <div class="check">
+          <div data-controller="items">
             <%= simple_form_for([@colocation, list, item], data: {items_target: "form"}) do |f| %>
               <%= f.check_box :completed, data: {items_target: "check", action: "change->items#chec"} %>
             <% end %>
+            </div>
           </div>
           <div class="item-name">
             <%= item.name %>
