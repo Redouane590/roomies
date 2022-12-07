@@ -27,7 +27,7 @@
     <%# if current_user && chatroom %>
       <%= link_to colocation_chatroom_path(colocation.id, chatroom.id), class: "navbar-brand" do  %>
 
-          <i class="fas fa-comment-dots relat"></i>
+          <i class="fas fa-comment-dots relat <%= active_class(colocation_chatroom_path(colocation.id, chatroom.id)) %>"></i>
             <span class="badge" data-controller="notification-subscription" data-notification-subscription-target="notif" data-notification-subscription-user-id-value="<%=current_user.id%>"><%= current_user.unread_messages %></span>
       <% end %>
   <% end %>
