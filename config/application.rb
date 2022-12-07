@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Roomies
   class Application < Rails::Application
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+    config.i18n.default_locale = :fr
+
     config.generators do |generate|
       generate.assets false
       generate.helper false
