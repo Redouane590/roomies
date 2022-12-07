@@ -10,6 +10,7 @@ export default class extends Controller {
     this.channel = createConsumer().subscriptions.create(
       { channel: "NotificationChannel", id: this.userIdValue},
       { received: data => {
+        this.notifTarget.classList.remove("d-none")
         this.notifTarget.innerHTML = ""
         this.notifTarget.innerHTML = data}}
     )
@@ -18,9 +19,10 @@ export default class extends Controller {
     this.display()
   }
 
-  // display() {
-  //   if (current_user.unread_messages == 0) {
-  //   this.notifTarget.classList.add("d-none")
-  // }
+  display() {
+
+    if (this.notifTarget.innerHTML === "0") {
+      this.notifTarget.classList.add("d-none")
+    }
   }
 }
