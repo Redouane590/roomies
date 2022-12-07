@@ -1,42 +1,55 @@
-<div class="container">
-  <div class="index-lists">
-  <%# Si l'index est vide %>
-    <% if @lists.count == 0 %>
-      <div class="empty-list d-block">
-      <%= image_tag("arrow.png", height: '160', width: '160')%>
-      <%= link_to new_colocation_list_path do %>
-        <i class="big-yellow-btn fa-solid fa-circle-plus"></i>
-        <% end %>
-      </div>
-    <% else %>
+<div class="indexlist">
+  <div class="container">
+  <h1>Nos listes partagées</h1>
+
+    <div class="accordion" id="accordionPanel">
+        <div class="showlist mt-5">
           <% @lists.each do |list| %>
-            <div class="list-index">
-            <div class="bin-picto">
+            <div class="list-index" id="heading<%=list.id %>">
             <%= link_to colocation_list_path(@colocation, list), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e ?"} do %>
-                  <i class="fa-solid fa-trash"></i>
-                  <% end %>
+              <i class="fa-solid fa-circle-xmark deletelist"></i>
+            <% end %>
+              <h5 class="mb-0 mt-2">
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse<%=list.id%>" aria-expanded="false" aria-controls="collapse<%=list.id%> ">
+                <%=list.title.upcase %>
+                </button>
+              </h5>
             </div>
-              <% list.colocation = @colocation %>
-              <%= link_to colocation_list_path(@colocation, list) do%>
-                <%= list.title.upcase %>
-                  <br>
-                  <div class="mini-todo-items">
-                    <% list.items.first(3).each do |item| %>
-                    <%= item.name %> <br>
-                    <% end %>
-                    <br>
-                    <%= link_to "Voir plus..", colocation_list_path(@colocation, list) %>
+            <div id="collapse<%=list.id%>" class="collapse" aria-labelledby="heading<%=list.id %>" data-bs-parent="#accordion">
+              <div class="px-5">
+                <div class="list-item">
+                  <div class="d-flex justify-content-between" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="add-item">
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="add-item mb-3">
+                    Ajouter un nouvel élément
+                    </div>
                   </div>
-              <% end %>
+                </div>
+                <%= render list.items, colocation: @colocation, list: list %>
+              </div>
+            </div>
+                <%# Modal %>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter un élément</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <%= simple_form_for [@colocation, list, @item] do |f| %>
+                      <%= f.input :name, label: "Nom" %>
+                      <%= f.input :description %>
+                      <%= f.button :submit, 'Enregistrer' %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
           <% end %>
       </div>
-    <div class="outside-btn">
-        <div class="add-button">
-          <%= link_to new_colocation_list_path do %>
-          <i class="fa-solid fa-circle-plus button-add-yellow"></i>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+    </div>
+  </div>
 </div>
