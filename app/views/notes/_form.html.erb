@@ -1,0 +1,13 @@
+<div class="container d-none " data-notes-target="form" style="margin-bottom: 200px;">
+    <h2 class="text-center">Creer votre note</h1>
+
+      <%= simple_form_for [@colocation, @note], action: "submit->notes#send" do |f| %>
+
+      <%= f.input :title, :label => "Titre de la note"  %>
+      <%= f.input :content, :label => "Contenu de la note" %>
+      <%= f.button :submit, "Ajouter la note", class: "btn btn-primary " %>
+      <a href="" class="btn btn-danger" data-notes-target="annuler" data-action="click->notes#annuler">Annuler</a>
+      <%= link_to "Annuler", colocation_notes_path, class: "btn btn-danger" %>
+      <% end %>
+
+  </div>

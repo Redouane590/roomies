@@ -26,3 +26,12 @@ UserColocation.create!(colocation_id: friends.id, user_id: ross.id)
 UserColocation.create!(colocation_id: friends.id, user_id: chandler.id)
 UserColocation.create!(colocation_id: friends.id, user_id: monica.id)
 puts "all done"
+puts "create notes..."
+Note.create(title: "Mot de passe wifi", content: "Asx@l597#ffez", colocation_id: friends.id)
+Note.create(title: "Numero du proprio", content: "0783407855", colocation_id: friends.id)
+Note.create(title: "Contact du plombier", content: "Many et ses outils: 0783407855", colocation_id: friends.id)
+Note.create(title: "Le chat", content: "N'oublier pas de nourrir le chat, un paquet au matin et un au soir", colocation_id: friends.id)
+Note.create(title: "Soirée de noel", content: "Oubliez pas les preparatifs de noel", colocation_id: friends.id)
+Note.create(title: "Planning de menage", content: "N'oubliez de faire le ménage quand c'est votre tour (voir planning)", colocation_id: friends.id)
+Note.create(title: "Bug de la TV", content: "Quand la télé ne veux pas s'allumer mettez lui un coup de boule et rallumez la !", colocation_id: friends.id)
+Note.create(title: "Anniv de rachel", content: "Le 10 décembre !!", colocation_id: friends.id)

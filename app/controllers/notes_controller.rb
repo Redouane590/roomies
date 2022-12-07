@@ -6,6 +6,7 @@ class NotesController < ApplicationController
   def index
     @colocation = Colocation.find(params[:colocation_id])
     @notes = Note.where(colocation_id: params[:colocation_id])
+    @note = Note.new
   end
 
   def new
@@ -17,10 +18,17 @@ class NotesController < ApplicationController
     @colocation = Colocation.find(params[:colocation_id])
     @note = Note.new(note_params)
     @note.colocation = @colocation
-    if @note.save
-      redirect_to colocation_notes_path
-    else
-      render :new, status: :unprocessable_entity
+    # if @note.save
+    #   redirect_to colocation_notes_path
+    # else
+    #   render :new, status: :unprocessable_entity
+    # end
+
+
+    @note.save
+    respond_to do |format|
+      format.html { redirect_to colocation_notes_path }
+      format.text { render partial: "notes/note", locals: {note: @note}, formats: [:html] }
     end
   end
 
