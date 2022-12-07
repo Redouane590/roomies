@@ -26,7 +26,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.colocation = @colocation
     if @list.save
-      redirect_to colocation_list_path(@colocation, @list)
+      redirect_to colocation_lists_path
     else
       render :new, status: :unprocessable_entity
     end
