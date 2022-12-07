@@ -19,3 +19,28 @@
     opacity: 1;
   }
 }
+
+.navbar {
+  padding: 0px;
+}
+
+
+
+// .navbar-brand:last-child {
+//   margin-right: -20px;
+// }
+// .relat {
+//   position: relative;
+// }
+.badge {
+  position: relative;
+  top: -26px;
+  right: 20px;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  background-color: #f44336;
+  border-radius: 50%;
+}
