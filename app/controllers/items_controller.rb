@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     @item.list = @list
     @colocation = Colocation.find(params[:colocation_id])
     if @item.save
-      redirect_to colocation_list_path(@colocation, @list)
+      redirect_to colocation_lists_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
     @colocation = Colocation.find(params[:colocation_id])
     @item.update(item_params)
     if @item.save
-      redirect_to colocation_list_path(@colocation, @list)
+      redirect_to colocation_lists_path
     else
       render :new, status: :unprocessable_entity
     end
