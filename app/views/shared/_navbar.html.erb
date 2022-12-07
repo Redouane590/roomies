@@ -1,4 +1,7 @@
 <% if current_user %>
+
+
+
 <nav class="navbar navbar-expand-lg navbar-light navbarbotom">
   <%= link_to root_path do  %>
     <i class="fas fa-house <%= active_class(root_path) %>"></i>
@@ -15,7 +18,9 @@
   <% end %>
 
   <% if user_signed_in? %>
-
+    <li class="nav-item active" data-controller="notif" data-notif-target="notif" data-notif-user-id-value="<%=current_user.id%>">
+      Messages non lu : <%= current_user.unread_messages %>
+      </li>
   <%# je choisis ci-dessous la colocation du current_user -> a modifier si le current_user a plusieurs colocations %>
      <% colocation = Colocation.find(current_user.user_colocations.first.colocation.id)  %>
     <% chatroom = Chatroom.find_by(colocation: colocation)  %>
@@ -24,6 +29,6 @@
         <i class="fas fa-comment-dots"></i>
       <% end %>
   <% end %>
-  <% end %>
+
 </nav>
 <% end %>

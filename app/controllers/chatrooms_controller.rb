@@ -1,10 +1,11 @@
 class ChatroomsController < ApplicationController
   def show
+    current_user.unread_messages = 0
+    current_user.save
     @colocation = Colocation.find(params[:colocation_id])
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
   end
-
 
   def create
     @chatroom = Chatroom.find(params[:chatroom_id])

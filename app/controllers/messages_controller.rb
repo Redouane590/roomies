@@ -5,11 +5,26 @@ class MessagesController < ApplicationController
     @message.chatroom = @chatroom
     @message.user = current_user
     if @message.save
-      ChatroomChannel.broadcast_to(
-        @chatroom,
-        render_to_string(partial: "message", locals: {message: @message})
+
+    other_users = @chatroom.colocation.users.reject { |user| user.id == current_user.id }
+
+    other_users.each do |user|
+      user.unread_messages += 1
+      user.save
+
+      NotificationChannel.broadcast_to(
+        user,
+        "user.unread_messages"
       )
       head :ok
+    end
+
+    ChatroomChannel.broadcast_to(
+      @chatroom,
+      render_to_string(partial: "message", locals: {message: @message})
+    )
+    head :ok
+
     else
       render "chatrooms/show", status: :unprocessable_entity
     end
