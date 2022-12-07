@@ -18,9 +18,9 @@ export default class extends Controller {
     this.display()
   }
 
-  display() {
-    if (current_user.unread_messages == 0) {
-    this.notifTarget.classList.add("d-none")
-  }
+  // display() {
+  //   if (current_user.unread_messages == 0) {
+  //   this.notifTarget.classList.add("d-none")
+  // }
   }
 }
