@@ -1,4 +1,7 @@
 <% if current_user %>
+
+
+
 <nav class="navbar navbar-expand-lg navbar-light navbarbotom">
   <%= link_to root_path do  %>
     <i class="fas fa-house <%= active_class(root_path) %>"></i>
@@ -15,15 +18,24 @@
   <% end %>
 
   <% if user_signed_in? %>
-
+    <%# <li class="nav-item active" data-controller="notification-subscription" data-notification-subscription-target="notif" data-notification-subscription-user-id-value="<%=current_user.id%>
+      <%#<%= current_user.unread_messages %>
+      <%# </li>  %>
   <%# je choisis ci-dessous la colocation du current_user -> a modifier si le current_user a plusieurs colocations %>
      <% colocation = Colocation.find(current_user.user_colocations.first.colocation.id)  %>
     <% chatroom = Chatroom.find_by(colocation: colocation)  %>
     <%# if current_user && chatroom %>
       <%= link_to colocation_chatroom_path(colocation.id, chatroom.id), class: "navbar-brand" do  %>
-        <i class="fas fa-comment-dots"></i>
+
+          <i class="fas fa-comment-dots relat"></i>
+            <span class="badge" data-controller="notification-subscription" data-notification-subscription-target="notif" data-notification-subscription-user-id-value="<%=current_user.id%>"><%= current_user.unread_messages %></span>
       <% end %>
   <% end %>
-  <%# <% end %>
 </nav>
 <% end %>
+
+
+
+
+
+<%#= current_user.unread_messages == 0 ? 'd-none' : '' %>
