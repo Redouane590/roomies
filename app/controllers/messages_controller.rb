@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
 
       NotificationChannel.broadcast_to(
         user,
-        "user.unread_messages"
+        user.unread_messages
       )
       head :ok
     end

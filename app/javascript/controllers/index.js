@@ -16,5 +16,5 @@ application.register("items", ItemsController)
 import NotesController from "./notes_controller"
 application.register("notes", NotesController)
 
-import NotifSubController from "./notif_sub_controller"
-application.register("notif-sub", NotifSubController)
+import NotificationSubscriptionController from "./notification_subscription_controller"
+application.register("notification-subscription", NotificationSubscriptionController)

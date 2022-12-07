@@ -5,8 +5,7 @@ export default class extends Controller {
   static values = { userId: Number }
   static targets = ["notif"]
   connect() {
-
-    console.log("notif controller js")
+    console.log("hhahahahahahahah")
 
     this.channel = createConsumer().subscriptions.create(
       { channel: "NotificationChannel", id: this.userIdValue},
@@ -16,6 +15,12 @@ export default class extends Controller {
     )
 
     console.log(this.channel)
+    this.display()
+  }
 
+  display() {
+    if (current_user.unread_messages == 0) {
+    this.notifTarget.classList.add("d-none")
+  }
   }
 }

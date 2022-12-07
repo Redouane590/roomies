@@ -6,6 +6,11 @@
 
 
 
+    <div data-controller="notif" data-notif-target="notif" data-notif-user-id-value="<%=current_user.id%>">
+      Messages non lu : <%= current_user.unread_messages %>
+      </div>
+
+
 
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
