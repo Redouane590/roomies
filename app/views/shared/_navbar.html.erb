@@ -21,9 +21,8 @@
     <% chatroom = Chatroom.find_by(colocation: colocation)  %>
     <%# if current_user && chatroom %>
       <%= link_to colocation_chatroom_path(colocation.id, chatroom.id), class: "navbar-brand" do  %>
-        <i class="fas fa-comment-dots"></i>
+        <i class="fas fa-comment-dots <%= active_class(colocation_chatroom_path(colocation.id, chatroom.id)) %>"></i>
       <% end %>
-  <% end %>
   <% end %>
 </nav>
 <% end %>

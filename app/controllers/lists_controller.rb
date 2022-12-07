@@ -4,6 +4,7 @@ class ListsController < ApplicationController
    @lists = List.where(colocation_id: params[:colocation_id])
    @colocation = Colocation.find(params[:colocation_id])
    @items = Item.where(list_id: params[:id])
+   @item = Item.new
   end
 
   def show
