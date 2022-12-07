@@ -51,5 +51,29 @@
           <% end %>
       </div>
     </div>
+
+    <div class="outside-btn">
+        <div class="add-button ">
+          <i class="fa-solid fa-circle-plus button-add-yellow" data-bs-toggle="modal" data-bs-target="#newListModal"></i>
+        </div>
+      </div>
   </div>
 </div>
+
+
+       <div class="modal fade" id="newListModal" tabindex="-1" aria-labelledby="newListModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="newListModalLabel">Créer une liste</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <%= simple_form_for [@colocation, @list] do |f| %>
+                      <%= f.input :title, label: "Titre" %>
+                      <%= f.button :submit, "Créer ma liste", class: "btn btn-light " %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
