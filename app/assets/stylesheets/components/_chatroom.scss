@@ -14,11 +14,12 @@
   }
 
   .messages {
-    height: 100%;
-    overflow: scroll;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
+   height: 100%;
+   overflow: scroll;
+   padding: 1rem;
+   display: flex;
+   flex-direction: column;
+
   }
 
   #new_message {
@@ -37,6 +38,7 @@
   padding: 16px;
   border-radius: 8px;
   line-break: anywhere;
+
 
 }
 

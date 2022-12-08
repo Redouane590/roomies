@@ -7,7 +7,7 @@
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
 
-    <div class="<%= message.sender?(current_user) ? 'right-side-message' : 'left-side-message' %>">
+    <div class="<%= message.sender?(current_user) ? 'right-side-message' : 'left-side-message' %> mb-5">
 
 
       <%= render "messages/message", message: message %>
