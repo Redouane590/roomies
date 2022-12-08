@@ -12,6 +12,7 @@ export default class extends Controller {
   addNotes() {
     this.displayTarget.classList.remove("d-none")
     this.buttonTarget.classList.add("d-none");
+    // this.errorTarget.scrollTo(0, this.element.scrollHeight);
   }
 
   annuler() {
@@ -31,16 +32,17 @@ export default class extends Controller {
       .then((data) => {
 
         document.getElementById('notes').insertAdjacentHTML('beforeend', data)
-        console.log(data)
-        // this.display_form()
+        // console.log(data)
+
+        this.displayTarget.classList.add("d-none");
+        this.buttonTarget.classList.remove("d-none");
+        this.display_form();
       })
 
 
 
-      this.formTarget.classList.add("d-none");
-      this.displayTarget.classList.add("d-none");
+      // this.formTarget.classList.add("d-none");
 
-      this.buttonTarget.classList.remove("d-none");
 
 
   }
@@ -48,7 +50,7 @@ export default class extends Controller {
 
   display_form() {
     let notes = this.cardTargets
-    console.log(this.displayTarget)
+    // console.log(this.displayTarget)
     if (notes.length == 10) {
       this.buttonTarget.classList.add("d-none");
       this.errorTarget.classList.remove('d-none')
