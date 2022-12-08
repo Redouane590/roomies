@@ -10,10 +10,8 @@ export default class extends Controller {
   }
 
   addNotes() {
-
     this.displayTarget.classList.remove("d-none")
     this.buttonTarget.classList.add("d-none");
-
   }
 
   annuler() {
@@ -34,8 +32,16 @@ export default class extends Controller {
 
         document.getElementById('notes').insertAdjacentHTML('beforeend', data)
         console.log(data)
-        this.display_form()
+        // this.display_form()
       })
+
+
+
+      this.formTarget.classList.add("d-none");
+      this.displayTarget.classList.add("d-none");
+
+      this.buttonTarget.classList.remove("d-none");
+
 
   }
 

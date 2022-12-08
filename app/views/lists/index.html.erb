@@ -38,7 +38,7 @@
                 </div>
 
               <%# ===================== liste d'items ======================= %>
-                <%= render list.items, colocation: @colocation, list: list %>
+                <%= render list.items.order(:created_at), colocation: @colocation, list: list %>
               </div>
             </div>
 
