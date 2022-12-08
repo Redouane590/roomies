@@ -1,12 +1,12 @@
 <div class="container text-center" data-controller="notes">
-  <h1>NOTES IMPORTANTES</h1>
+  <h1 class="head-title">NOTES IMPORTANTES</h1>
   <div class="parent" id="notes">
     <% @notes.each do |note| %>
     <%= render "note", note: note %>
     <% end %>
   </div>
 
-  <div class="container d-none " data-notes-target="display" style="margin-bottom: 200px;">
+  <div class="container d-none mt-5 border border-warning rounded-5 shadow p-3" data-notes-target="display" style="margin-bottom: 200px;">
     <h2 class="text-center">Creer votre note</h1>
 
       <%= simple_form_for [@colocation, @note], html: {
@@ -16,17 +16,17 @@
       action: "submit->notes#send"
     } } do |f| %>
 
-      <%= f.input :title, :label => "Titre de la note"  %>
-      <%= f.input :content, :label => "Contenu de la note" %>
-      <%= f.button :submit, "Ajouter la note", class: "btn btn-primary " %>
-      <a href="" class="btn btn-danger" data-notes-target="annuler" data-action="click->notes#annuler">Annuler</a>
+      <%= f.input :title, :label => "Titre"  %>
+      <%= f.input :content, :label => "Contenu" %>
+      <%= f.button :submit, "Ajouter la note", class: "btn btn-success "    %>
+      <a href="" class="btn " style=" background-color: rgba(206, 119, 119, 0.9)" data-notes-target="annuler" data-action="click->notes#annuler">Annuler</a>
       <%# <%= link_to "Annuler", colocation_notes_path, class: "btn btn-danger" %>
       <% end %>
 
   </div>
   <div><a>
       <i class="fa-solid fa-circle-plus button-add-yellow" data-notes-target="button"
-        data-action="click->notes#addNotes"></i>
+        data-action="click->notes#addNotes" style="margin-top: 32px;"></i>
     </a>
     <p class="d-none" style="margin-bottom: 100px;" data-notes-target="error">Vous ne pouvez plus ajouter de notes, max:
       10notes</p>
