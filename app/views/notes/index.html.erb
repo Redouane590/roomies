@@ -16,10 +16,10 @@
       action: "submit->notes#send"
     } } do |f| %>
 
-      <%= f.input :title, :label => "Titre de la note"  %>
-      <%= f.input :content, :label => "Contenu de la note" %>
-      <%= f.button :submit, "Ajouter la note", class: "btn btn-primary " %>
-      <a href="" class="btn btn-danger" data-notes-target="annuler" data-action="click->notes#annuler">Annuler</a>
+      <%= f.input :title, :label => "Titre"  %>
+      <%= f.input :content, :label => "Contenu" %>
+      <%= f.button :submit, "Ajouter la note", class: "btn btn-success "    %>
+      <a href="" class="btn " style=" background-color: rgba(206, 119, 119, 0.9)" data-notes-target="annuler" data-action="click->notes#annuler">Annuler</a>
       <%# <%= link_to "Annuler", colocation_notes_path, class: "btn btn-danger" %>
       <% end %>
 
