@@ -1,7 +1,7 @@
 <div class="colocation-show">
   <div class="container">
 
-  <h2>Bienvenue chez nous</h2>
+  <h2> Bienvenue chez nous <i class="fa-solid fa-heart"></i></h2>
 
     <div class="coloc-photo mt-5">
       <% if @colocation.photo.key %>
@@ -31,13 +31,13 @@
     </div>
 
     <div class="newroomate">
-      <strong>Ajouter un colocataire :</strong>
+      <strong><i class="fa-solid fa-user-plus"></i> Ajouter un colocataire :</strong>
       <br>
       <br>
 
       <%= simple_form_for [@colocation, @user_colocation] do |f| %>
-        <%= f.input :user, label: "Email du nouveau colocataire" %>
-        <%= f.button :submit, "Ajouter colocataire", class: "btn-create " %>
+      <%= f.input :user, label: "Email du nouveau colocataire" %>
+        <%= f.button :submit, "Ajouter colocataire", class: "btn-addcoloc" %>
       <% end %>
     </div>
   </div>

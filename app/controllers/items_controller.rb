@@ -40,8 +40,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
 
-    # redirect_to colocation_list_path(@colocation, @list)
-    redirect_to root_path
+    redirect_to colocation_lists_path(@colocation)
   end
 
     private
