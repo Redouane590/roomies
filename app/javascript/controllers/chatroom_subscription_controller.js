@@ -5,6 +5,12 @@ export default class extends Controller {
   static values = { chatroomId: Number }
   static targets = ["messages"]
 
+
+
+
+
+// Écouter l'événement de réception d'un nouveau message
+
   connect() {
 
     console.log(`Subscribe to the chatroom with the id ${this.chatroomIdValue}.`)
@@ -18,9 +24,11 @@ export default class extends Controller {
 
 
   #insertMessageAndScrollDown(data) {
+    let audio = new Audio('notification.mp3');
     console.log("insert")
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    audio.play();
   }
 
   resetForm(event) {
