@@ -8,4 +8,5 @@ class Colocation < ApplicationRecord
   has_one :chatroom, dependent: :destroy
   has_many :users, through: :user_colocations
   has_many :events, dependent: :destroy
+  has_one_attached :photo
 end
