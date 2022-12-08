@@ -12,8 +12,6 @@
             <%= item.name %>
           </div>
           <div class="item-pictos d-flex justify-content-between">
-            <i data-bs-toggle="modal" class="fa-regular fa-pen-to-square edit-button" data-bs-target="#editItem"></i>
-            <br>
             <%= link_to colocation_list_item_path(@colocation, list, item), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e ?"} do %>
               <i class="fa-solid fa-trash"></i>
             <% end %> <br>
