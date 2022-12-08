@@ -27,12 +27,14 @@
     <% end %>
   </div>
 
-  Ajouter un colocataire :
+  <div class="newroomate">
+    Ajouter un colocataire :
 
-  <%= simple_form_for [@colocation, @user_colocation] do |f| %>
-    <%= f.input :user, label: "Email du nouveau colocataire" %>
-    <%= f.button :submit, "Ajouter colocataire", class: "btn-create " %>
-  <% end %>
+    <%= simple_form_for [@colocation, @user_colocation] do |f| %>
+      <%= f.input :user, label: "Email du nouveau colocataire" %>
+      <%= f.button :submit, "Ajouter colocataire", class: "btn-create " %>
+    <% end %>
+  </div>
 </div>
 
 
@@ -54,6 +56,3 @@
     </div>
   </div>
 </div>
-
-
-<%= console %>
