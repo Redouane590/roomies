@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
-  def new
-    @item = Item.new
-    @list = List.find(params[:list_id])
-    @colocation = Colocation.find(params[:colocation_id])
-  end
+  # def new
+  #   @item = Item.new
+  #   @list = List.find(params[:list_id])
+  #   @colocation = Colocation.find(params[:colocation_id])
+  # end
 
   def create
     @list = List.find(params[:list_id])
@@ -40,7 +40,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
 
-    redirect_to colocation_list_path(@colocation, @list)
+    # redirect_to colocation_list_path(@colocation, @list)
+    redirect_to root_path
   end
 
     private

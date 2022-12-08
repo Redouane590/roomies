@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :colocations do
-    # resources :user_colocations, only: [:new, :create]
+
+    resources :user_colocations, only: [:new, :create]
     resources :lists, except: [:home] do
       resources :items
     end
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
     resources :events, except: [:home]
     get "contacts", to: "pages#contacts", as: :contacts
   end
-
+  get "deletephoto", to: "colocations#deletephoto", as: :deletephoto
   get "calendar", to: "pages#calendar", as: :calendar
   get "profile", to: "dashboards#profile", as: :profile
 

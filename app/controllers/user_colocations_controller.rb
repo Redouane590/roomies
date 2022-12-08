@@ -1,4 +1,4 @@
-class UsercolocationsController < ApplicationController
+class UserColocationsController < ApplicationController
   def show
     @colocation = Colocation.find(params[:id])
   end
@@ -7,19 +7,22 @@ class UsercolocationsController < ApplicationController
   end
 
   def new
-    @user_colocations = UserColocation.new
-    @colocation = Colocation.find(etc)
+    @user_colocation = UserColocation.new
+    @colocation = Colocation.find(params[:id])
   end
 
   def create
-    # @user = User.where(email: params[:email])
-    # @coloc = Coloc.find(params[:id])
-    # @colocation = Colocation.new(user_id: @user.id, colocation_id: @coloc.id)
-    if @colocation.save
+
+      @user = User.find_by(email: params[:user_colocation][:user])
+      @colocation = Colocation.find(params[:colocation_id])
+      if @user
+        @user_colocation = UserColocation.new(user_id: @user.id, colocation_id: @colocation.id)
+        if @user_colocation.save
+          p "j'ai ajouté un colloc"
+        end
+      end
       redirect_to colocation_path(@colocation)
-    else
-      render :new, status: :unprocessable_entity
-    end
+
   end
 
   def edit

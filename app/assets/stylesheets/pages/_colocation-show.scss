@@ -1,0 +1,24 @@
+.addphotocoloc {
+  height: 200px;
+  width: 100%;
+  color: lightgrey;
+  background-color: white;
+  border: 1px solid lightgrey;
+}
+
+.photocoloc {
+  width: 100%;
+}
+
+.coloc-photo {
+  position: relative;
+}
+.deletephoto {
+  position: absolute;
+  z-index: 2;
+  top: -5px;
+  left: -5px;
+  text-decoration: none;
+  color: rgb(244, 91, 91);
+  font-size: 24px;
+}
