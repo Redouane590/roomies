@@ -1,6 +1,6 @@
 .card-purple {
   background-color: rgba(206, 119, 119, 0.3);
-position: relative;
+  position: relative;
   border-radius: 8px;
   margin-top: 20px;
   // padding: auto;
@@ -43,14 +43,7 @@ position: relative;
 
 
 
-.menu-nav {
-  position: absolute;
-  top: 0px;
-  right: -20px;
-  display: flex;
-  justify-content: space-between;
-  z-index: 3;
-}
+
 
 .menu-item {
   color: #FCC;
@@ -74,8 +67,19 @@ a div {
   padding: 2px;
 }
 
+
+.menu-nav {
+  position: absolute;
+  top: 18px;
+  right: -10px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+}
+
 .dropdown-container .dropdown {
   position: relative;
+  top: 18px;
   right: 10px;
   font-size: 12px;
   background-color: rgba(206, 119, 119, 0.7);
