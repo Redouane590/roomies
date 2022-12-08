@@ -3,7 +3,7 @@
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag('logo.png.png') %>
     <% end %>
-
+    <h1 class="coloc_name"><%= current_user.colocations.first.name %></h1>
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
               <% if current_user.photo.key %>
