@@ -57,7 +57,7 @@
                     <%= simple_form_for [@colocation, list, @item] do |f| %>
                       <%= f.input :name, label: "Nom" %>
                       <%= f.input :description %>
-                      <%= f.button :submit, 'Enregistrer' %>
+                      <%= f.button :submit, 'Enregistrer', class: "btn-pillpink" %>
                     <% end %>
                   </div>
                 </div>
@@ -90,7 +90,7 @@
                   <div class="modal-body">
                     <%= simple_form_for [@colocation, @list_new] do |f| %>
                       <%= f.input :title, label: "Titre" %>
-                      <%= f.button :submit, "Créer ma liste", class: "btn btn-light " %>
+                      <%= f.button :submit, "Créer ma liste", class: "btn-pillpink" %>
                     <% end %>
                   </div>
                 </div>

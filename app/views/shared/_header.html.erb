@@ -1,7 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag('logo.png.png') %>
+    <% if current_user %>
+      <% colocation = Colocation.find(current_user.user_colocations.first.colocation.id)  %>
+      <%= link_to colocation_path(colocation.id), class: "navbar-brand" do %>
+        <%= image_tag('logo.png.png') %>
+      <% end %>
     <% end %>
         <% if user_signed_in? %>
           <h1 class="coloc-name"><%= current_user.colocations.first.name %></h1>

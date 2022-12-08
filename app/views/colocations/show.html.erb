@@ -1,57 +1,63 @@
-<div class="container">
+<div class="colocation-show">
+  <div class="container">
 
-  <div class="coloc-photo mt-5">
-    <% if @colocation.photo.key %>
-      <%= cl_image_tag @colocation.photo.key, class: "photocoloc" %>
-      <%= link_to deletephoto_path(@colocation) do %>
-        <i class="fa-solid fa-circle-xmark deletephoto"></i>
+  <h2>Bienvenue chez nous</h2>
+
+    <div class="coloc-photo mt-5">
+      <% if @colocation.photo.key %>
+        <%= cl_image_tag @colocation.photo.key, class: "photocoloc" %>
+        <%= link_to deletephoto_path(@colocation) do %>
+          <i class="fa-solid fa-circle-xmark deletephoto"></i>
+        <% end %>
+      <% else %>
+        <button type="button" class="addphotocoloc" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fa-solid fa-plus"></i>
+        Ajouter notre photo de groupe
+        </button>
       <% end %>
-    <% else %>
-      <button type="button" class="addphotocoloc" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      <i class="fa-solid fa-plus"></i>
-      Ajouter notre photo de groupe
-      </button>
-    <% end %>
-  </div>
+    </div>
 
-  <div class="colocataires">
-    <% @colocation.users.each do |user| %>
-          <div class="colocataire">
-              <%= user.nickname %> <br>
-            <% if user.photo.key %>
-              <%= cl_image_tag user.photo.key, width: 32, height: 32, crop: :thumb, gravity: :face, class: "profile-avatar" %>
-            <% else %>
-              <%= image_tag("avatar.png.png", height: '32', width: '32') %>
-            <% end %>
-          </div>
-    <% end %>
-  </div>
-
-  <div class="newroomate">
-    Ajouter un colocataire :
-
-    <%= simple_form_for [@colocation, @user_colocation] do |f| %>
-      <%= f.input :user, label: "Email du nouveau colocataire" %>
-      <%= f.button :submit, "Ajouter colocataire", class: "btn-create " %>
-    <% end %>
-  </div>
-</div>
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <%= simple_form_for(@colocation) do |f| %>
-        <%= f.input :photo, as: :file %>
-        <%= f.button :submit, "Ajouter une photo" %>
+    <div class="colocataires">
+      <% @colocation.users.each do |user| %>
+            <div class="colocataire">
+                <%= user.nickname %> <br>
+              <% if user.photo.key %>
+                <%= cl_image_tag user.photo.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "profile-avatar" %>
+              <% else %>
+                <%= image_tag("avatar.png.png", height: '32', width: '32') %>
+              <% end %>
+            </div>
       <% end %>
+    </div>
+
+    <div class="newroomate">
+      <strong>Ajouter un colocataire :</strong>
+      <br>
+      <br>
+
+      <%= simple_form_for [@colocation, @user_colocation] do |f| %>
+        <%= f.input :user, label: "Email du nouveau colocataire" %>
+        <%= f.button :submit, "Ajouter colocataire", class: "btn-create " %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <%= simple_form_for(@colocation) do |f| %>
+          <%= f.input :photo, as: :file %>
+          <%= f.button :submit, "Ajouter une photo" %>
+        <% end %>
+        </div>
       </div>
     </div>
   </div>
