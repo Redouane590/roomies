@@ -6,6 +6,7 @@
         <%= image_tag('logo.png.png') %>
       <% end %>
     <% end %>
+
         <% if user_signed_in? %>
           <h1 class="coloc-name"><%= current_user.colocations.first.name %></h1>
           <li class="nav-item dropdown">
@@ -14,6 +15,7 @@
             <% else %>
                 <%= image_tag("avatar.png.png", width: 32, height: 32, crop: :thumb, gravity: :face, class: "profile-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
             <% end %>
+
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to profile_path(@user), class: "dropdown-item" do %> <i class="fa-regular fa-address-card"></i> Mon profil <% end %>
                 <%= link_to colocation_contacts_path(current_user.user_colocations.first.colocation_id), class: "dropdown-item" do %> <i class="fa-solid fa-phone"></i> Nos contacts <% end %>

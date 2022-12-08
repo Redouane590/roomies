@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
 Message.destroy_all
 Chatroom.destroy_all
 UserColocation.destroy_all
@@ -14,11 +15,26 @@ puts "create friends colo"
 friends = Colocation.create!(name: "Friends")
 Chatroom.create!(colocation_id: friends.id)
 puts "users creation.."
-joey = User.create!(email: "joey@mail.fr", nickname: "Joey", password: "azerty")
-rachel = User.create!(email: "rachel@mail.fr", nickname: "Rachel", password: "azerty")
-ross = User.create!(email: "ross@mail.fr", nickname: "Ross", password: "azerty")
-chandler = User.create!(email: "chandler@mail.fr", nickname: "Chandler", password: "azerty")
-monica = User.create!(email: "monica@mail.fr", nickname: "Monica", password: "azerty")
+file_joey = URI.open("https://i.pinimg.com/originals/32/cb/60/32cb600629bfdad9cbe5f138a67dc7d3.jpg")
+joey = User.create!(email: "joey@mail.fr", nickname: "Joey", password: "azerty", phone_number: "0628013779")
+joey.photo.attach(io: file_joey, filename: "Joey.jpg", content_type: "image/jpg")
+joey.save
+file_rachel = URI.open("https://resize.elle.fr/article_960_webp/var/plain_site/storage/images/loisirs/series/aviez-vous-remarque-l-uniforme-de-rachel-green-quand-elle-travaillait-au-central-perk-3522407/83479163-1-fre-FR/Aviez-vous-remarque-l-uniforme-de-Rachel-Green-quand-elle-travaillait-au-Central-Perk.jpg")
+rachel = User.create!(email: "rachel@mail.fr", nickname: "Rachel", password: "azerty", phone_number: "0627013799")
+rachel.photo.attach(io: file_rachel, filename: "Joey.jpg", content_type: "image/jpg")
+rachel.save
+file_ross = URI.open("https://static.wikia.nocookie.net/friends/images/7/70/192.jpg/revision/latest?cb=20130305164518&path-prefix=fr")
+ross = User.create!(email: "ross@mail.fr", nickname: "Ross", password: "azerty", phone_number: "0628014792")
+ross.photo.attach(io: file_ross, filename: "Joey.jpg", content_type: "image/jpg")
+ross.save
+file_chandler = URI.open("https://static.wikia.nocookie.net/friends/images/d/d2/ImagesCAWIP3G7.jpg/revision/latest?cb=20120326174426&path-prefix=fr")
+chandler = User.create!(email: "chandler@mail.fr", nickname: "Chandler", password: "azerty", phone_number: "0728013749")
+chandler.photo.attach(io: file_chandler, filename: "Joey.jpg", content_type: "image/jpg")
+chandler.save
+file_monica = URI.open("https://static.wikia.nocookie.net/friends/images/7/75/Monica.jpg/revision/latest/scale-to-width-down/180?cb=20120326163954&path-prefix=fr")
+monica = User.create!(email: "monica@mail.fr", nickname: "Monica", password: "azerty", phone_number: "0738013791")
+monica.photo.attach(io: file_monica, filename: "Joey.jpg", content_type: "image/jpg")
+monica.save
 puts "usercoloc creation.."
 UserColocation.create!(colocation_id: friends.id, user_id: joey.id)
 UserColocation.create!(colocation_id: friends.id, user_id: rachel.id)
