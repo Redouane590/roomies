@@ -5,20 +5,29 @@
     <div class="accordion" id="accordionPanel">
         <div class="showlist mt-5">
           <% @lists.each do |list| %>
+
+            <%# ===================== bouton deroulant les items ======================= %>
             <div class="list-index" id="heading<%=list.id %>">
-            <%= link_to colocation_list_path(@colocation, list), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e ?"} do %>
-              <i class="fa-solid fa-circle-xmark deletelist"></i>
-            <% end %>
+
+            <%# ici ok %>
+
+
+              <%= link_to colocation_list_path(@colocation, list), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e ?"} do %>
+                <i class="fa-solid fa-circle-xmark deletelist"></i>
+              <% end %>
               <h5 class="mb-0 mt-2">
                 <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse<%=list.id%>" aria-expanded="false" aria-controls="collapse<%=list.id%> ">
                 <%=list.title.upcase %>
                 </button>
               </h5>
             </div>
+
+            <%# ===================== elements qui se deroulent ======================= %>
+
             <div id="collapse<%=list.id%>" class="collapse" aria-labelledby="heading<%=list.id %>" data-bs-parent="#accordion">
               <div class="px-5">
                 <div class="list-item">
-                  <div class="d-flex justify-content-between" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <div class="d-flex justify-content-between" data-bs-toggle="modal" data-bs-target="#exampleModal-<%=list.id %>">
                     <div class="add-item">
                       <i class="fa-solid fa-plus"></i>
                     </div>
@@ -27,13 +36,19 @@
                     </div>
                   </div>
                 </div>
+
+              <%# ===================== liste d'items ======================= %>
                 <%= render list.items, colocation: @colocation, list: list %>
               </div>
             </div>
-                <%# Modal %>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            <div class="modal fade <%=list.id %>" id="exampleModal-<%=list.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+
               <div class="modal-dialog">
                 <div class="modal-content">
+
                   <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter un élément</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -42,15 +57,19 @@
                     <%= simple_form_for [@colocation, list, @item] do |f| %>
                       <%= f.input :name, label: "Nom" %>
                       <%= f.input :description %>
-                      <%= f.button :submit, 'Enregistrer' %>
+                      <%= f.button :submit, 'Enregistrer', class: "btn-pillpink" %>
                     <% end %>
                   </div>
                 </div>
               </div>
             </div>
+            <%# ---- Fin Modal %>
           <% end %>
       </div>
     </div>
+
+
+
 
     <div class="outside-btn">
         <div class="add-button ">
@@ -60,7 +79,7 @@
   </div>
 </div>
 
-
+              <%# Modal modification liste %>
        <div class="modal fade" id="newListModal" tabindex="-1" aria-labelledby="newListModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -69,9 +88,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <%= simple_form_for [@colocation, @list] do |f| %>
+                    <%= simple_form_for [@colocation, @list_new] do |f| %>
                       <%= f.input :title, label: "Titre" %>
-                      <%= f.button :submit, "Créer ma liste", class: "btn btn-light " %>
+                      <%= f.button :submit, "Créer ma liste", class: "btn-pillpink" %>
                     <% end %>
                   </div>
                 </div>

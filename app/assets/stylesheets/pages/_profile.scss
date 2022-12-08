@@ -18,7 +18,7 @@
 
 .colocataires {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   margin-top: 25px;
   margin-bottom: 25px;
@@ -40,4 +40,14 @@
   text-decoration: none;
   margin-top: 40px;
   color: #F9BC60;
+}
+
+.btn-pillpink {
+  background-color: #CE7777;
+  border-radius: 50px;
+}
+
+.edit-button {
+
+  border: none;
 }

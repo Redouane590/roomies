@@ -1,4 +1,5 @@
 .navbarbotom {
+  z-index: 20;
 
   height: 90px;
 
@@ -17,7 +18,6 @@
   .active-page {
     font-size: 56px;
     opacity: 1;
-    font-size: 58px;
   }
 }
 
