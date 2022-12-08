@@ -54,7 +54,7 @@ export default class extends Controller {
   }
 
   #userStyleClass(currentUserIsSender) {
-    return currentUserIsSender ? "left-side-message" : "right-side-message"
+    return currentUserIsSender ? "right-side-message" : "left-side-message"
   }
   resetForm(event) {
     event.target.reset()
