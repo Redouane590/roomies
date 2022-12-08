@@ -29,15 +29,16 @@
 
 
 // .navbar-brand:last-child {
-//   margin-right: -20px;
-// }
-// .relat {
-//   position: relative;
+//   margin-right: -10px;
 // }
 
+.relat {
+   position: relative;
+}
+
 .badge {
-  position: relative;
-  top: -26px;
+  position: absolute;
+  top: 20px;
   right: 20px;
   padding: 0.25em 0.4em;
   font-size: 75%;
