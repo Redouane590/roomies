@@ -4,6 +4,8 @@ class ListsController < ApplicationController
    @lists = List.where(colocation_id: params[:colocation_id])
    @colocation = Colocation.find(params[:colocation_id])
    @items = Item.where(list_id: params[:id])
+   @item = Item.new
+   @list = List.new
   end
 
   def show
@@ -24,7 +26,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.colocation = @colocation
     if @list.save
-      redirect_to colocation_list_path(@colocation, @list)
+      redirect_to colocation_lists_path
     else
       render :new, status: :unprocessable_entity
     end
