@@ -1,0 +1,47 @@
+.addphotocoloc {
+  height: 200px;
+  width: 100%;
+  color: lightgrey;
+  background-color: white;
+  border: 1px solid lightgrey;
+}
+
+.photocoloc {
+  width: 100%;
+}
+
+.coloc-photo {
+  position: relative;
+}
+.deletephoto {
+  position: absolute;
+  z-index: 2;
+  top: -5px;
+  left: -5px;
+  text-decoration: none;
+  color: rgb(244, 91, 91);
+  font-size: 20px;
+}
+
+
+.newroomate {
+  background-color: white;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #F9BC60;
+}
+
+.newroomate .btn {
+  border: 1px solid lightgrey;
+}
+
+.colocation-show  h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 16px;
+  color: #F9BC60;
+}
+
+.btn-addcoloc {
+  background-color: #F9BC60;
+}

@@ -1,43 +1,25 @@
       <div class="list-item">
         <div class="d-flex justify-content-between">
           <div class="check">
-          <div data-controller="items">
-            <%= simple_form_for([@colocation, list, item], data: {items_target: "form"}) do |f| %>
-              <%= f.check_box :completed, data: {items_target: "check", action: "change->items#chec"} %>
-            <% end %>
+            <div data-controller="items">
+              <%= simple_form_for([@colocation, list, item], data: {items_target: "form"}) do |f| %>
+                <%= f.check_box :completed, data: {items_target: "check", action: "change->items#chec"} %>
+              <% end %>
             </div>
           </div>
           <div class="item-name">
+
             <%= item.name %>
           </div>
           <div class="item-pictos d-flex justify-content-between">
-            <i data-bs-toggle="modal" class="fa-regular fa-pen-to-square edit-button" data-bs-target="#editItem"></i>
-            <br>
             <%= link_to colocation_list_item_path(@colocation, list, item), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e ?"} do %>
               <i class="fa-solid fa-trash"></i>
             <% end %> <br>
+
           </div>
         </div>
           <div class="description">
             <%= item.description %>
+
           </div>
       </div>
-
-
-<div class="modal fade" id="editItem" tabindex="-1" aria-labelledby="editItem" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">
-          <div class="container">
-            <%= simple_form_for [@colocation, list, item], method: :patch do |f| %>
-            <%= f.input :name %>
-            <%= f.input :description %>
-            <%= f.button :submit, 'Enregistrer' %>
-            <% end %>
-          </div>
-          </h1>
-      </div>
-    </div>
-  </div>
-</div>

@@ -62,7 +62,11 @@
   }
 
   .item-pictos {
-    width: 50px;
+    width: fit-content;
+    color: #004643;
+  }
+
+  .item-pictos .fa-solid {
     color: #004643;
   }
 
