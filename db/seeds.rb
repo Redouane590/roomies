@@ -19,7 +19,7 @@ file_joey = URI.open("https://i.pinimg.com/originals/32/cb/60/32cb600629bfdad9cb
 joey = User.create!(email: "joey@mail.fr", nickname: "Joey", password: "azerty", phone_number: "0628013779")
 joey.photo.attach(io: file_joey, filename: "Joey.jpg", content_type: "image/jpg")
 joey.save
-file_rachel = URI.open("https://resize.elle.fr/article_960_webp/var/plain_site/storage/images/loisirs/series/aviez-vous-remarque-l-uniforme-de-rachel-green-quand-elle-travaillait-au-central-perk-3522407/83479163-1-fre-FR/Aviez-vous-remarque-l-uniforme-de-Rachel-Green-quand-elle-travaillait-au-Central-Perk.jpg")
+file_rachel = URI.open("https://media-exp1.licdn.com/dms/image/C4E03AQHpKu3f3yMmgQ/profile-displayphoto-shrink_800_800/0/1516545530384?e=1675900800&v=beta&t=19MguSf0CGZm4IUx2bszertVQNVdSfbhCxLedPSsalE")
 rachel = User.create!(email: "rachel@mail.fr", nickname: "Rachel", password: "azerty", phone_number: "0627013799")
 rachel.photo.attach(io: file_rachel, filename: "Joey.jpg", content_type: "image/jpg")
 rachel.save
